@@ -6,6 +6,7 @@ import { useState, useCallback } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { User } from "lucide-react";
 
 const navItems = [
   { id: 1, text: "Home", link: "/" },
@@ -49,7 +50,13 @@ if (data.access_token) {
   localStorage.setItem("user", JSON.stringify(data));
 setUser(data);
 
-  setUser({ name: data.name, email: data.email, google: true });
+  setUser({
+  name: data.name,
+  email: data.email,
+  picture: data.picture, // add this line
+  google: true,
+});
+
   router.push("/profile");
 }
 
@@ -71,7 +78,7 @@ setUser(data);
 }, []);
 
   return (
-    <header className="absolute left-0 top-0 w-full shadow-lg flex items-center h-24 z-40">
+    <header className="absolute left-0 top-0 w-full shadow-lg flex items-center h-24 z-20">
       <nav className="relative mx-auto lg:max-w-7xl w-full px-2 sm:px-4 md:px-6 lg:px-2 flex items-center justify-between">
       
         {/* Logo */}
@@ -138,13 +145,19 @@ setUser(data);
       </Link>
     </>
   ) : (
-    <Link href="/profile" className="h-10 w-10">
-      <img
-        src={user.picture}
-        alt={user.name || "Profile"}
-        className="h-10 w-10 rounded-full border border-gray-300 object-cover"
-      />
-    </Link>
+//     <Link href="/profile" className="h-10 w-10">
+//       <img
+//   src={ "/gb2.avif"}
+//   alt={user.name || "Profile"}
+//   className="h-12 w-16 rounded-full border border-gray-300 object-cover"
+// />
+
+//     </Link>
+ <Link href="/profile" className="flex items-center justify-center">
+    <User
+      className="h-12 w-12 text-indigo-600 border border-white/60 rounded-full p-1 bg-indigo-300/40 hover:bg-indigo-300/60 transition"
+    />
+  </Link>
   )}
 </div>
 
@@ -233,13 +246,14 @@ setUser(data);
       );
 
       setUser({
-        name: data.name,
-        email: data.email,
-        mobile: data.mobile,
-        address: data.address,
-        profilePic: data.profilePic,
-        google: false,
-      });
+  name: data.name,
+  email: data.email,
+  mobile: data.mobile,
+  address: data.address,
+  picture: data.profilePic, // rename here for consistency
+  google: false,
+});
+
 
       setShowLoginModal(false);
       router.push("/profile");

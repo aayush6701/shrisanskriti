@@ -185,7 +185,7 @@ useEffect(() => {
   {/* Profile Image */}
   <div className="relative shrink-0">
     <Image
-      src={user?.profilePic || "/gbi.png"}
+      src={"/gbi.png"}
       alt="User Photo"
       width={150}
       height={150}
