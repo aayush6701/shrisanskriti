@@ -10,7 +10,7 @@ import { X, ArrowLeft, ArrowRight, Download, Share2, Printer } from "lucide-reac
 import Loader from "../components/Loader";
 
 const defaultImages = [
-  "/gp.jpg",  "/i1.JPG", "/i3.JPG", "/i4.JPG", "/i5.JPG", "/i6.JPG",
+  "/gp.jpg",  "/i1.JPG", "/i3.JPG", "/i4.JPG", "/i5.JPG", "/i6.JPG", "/ai1.webp", "/ai2.webp", "/a3.webp", "/ai4.webp"
 ];
 
 const aiImages = [
