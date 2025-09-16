@@ -13,7 +13,9 @@ export async function GET(req) {
   const ctx = canvas.getContext("2d");
 
   // ✅ Load base invitation
-  const baseImage = await loadImage(process.cwd() + "/public/Pass.png");
+ const baseImage = await loadImage("https://shrisanskriti.vercel.app/Pass.png");
+
+
   ctx.drawImage(baseImage, 0, 0, width, height);
 
   // ✅ Generate QR Code
