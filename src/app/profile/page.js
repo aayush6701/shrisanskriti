@@ -192,8 +192,7 @@ useEffect(() => {
       className="rounded-full"
     />
     <button className="absolute bottom-2 right-2 bg-white/70 p-2 rounded-full shadow hover:bg-white">
-      // ✏️
-        .
+       ✏️
     </button>
   </div>
 
